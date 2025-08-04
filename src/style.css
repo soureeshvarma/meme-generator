@@ -1,0 +1,207 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 16px;
+    background: linear-gradient(135deg, #6b48ff 0%, #ff2e63 100%);
+    position: relative;
+    min-height: 100vh;
+    touch-action: manipulation;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h20v20H0z" fill="rgba(255,255,255,0.05)" /%3E%3C/svg%3E') repeat;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: #4b48ff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.meme-editor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+input, select, button {
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-size: 0.9em;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #2c3e50;
+}
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.templates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.template-image {
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.template-image:hover {
+    border-color: #4CAF50;
+    transform: scale(1.05);
+}
+
+.canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(248, 249, 250, 0.9);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+canvas {
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    cursor: move;
+    touch-action: none;
+}
+
+.error {
+    color: #ff4d4f;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .meme-editor {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        padding: 8px;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input, select, button {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+
+    .template-image {
+        width: 60px;
+    }
+
+    .canvas-container {
+        padding: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        padding: 6px;
+    }
+
+    input, select, button {
+        font-size: 0.8em;
+    }
+
+    .template-image {
+        width: 50px;
+    }
+}
